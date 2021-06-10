@@ -50,23 +50,6 @@
             ReferencedContainer = "container:twitter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "consumer_token"
-            value = "AAAAAAAAAAAAAAAAAAAAAP59QAEAAAAAC1nHoOTiYGTTiX6I%2B9rUEwmYiDY%3DyHJHCFW1wO5ZRsa3l6IxPH1JX14581NyvbjEb73mLTaHnhCyhe"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "consumer_secret"
-            value = "PofNrL3bbVG1qZMpuxTuyNUr89mVfCI4YReSKyTkbWyqc67ih9"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "consumer_key"
-            value = "7JZJZzK17Hj5w4wxqztvhmgDJ"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

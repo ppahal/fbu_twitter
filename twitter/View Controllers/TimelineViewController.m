@@ -8,15 +8,19 @@
 
 #import "TimelineViewController.h"
 #import "APIManager.h"
+#import "TweetCell.h"
+#import "Tweet.h"
 
-@interface TimelineViewController ()
-
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *homeTableView;
+@property (nonatomic, strong) NSMutableArray *tweets;
 @end
-
 @implementation TimelineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.homeTableView.delegate = self;
+    self.homeTableView.dataSource = self;
     
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
@@ -47,5 +51,17 @@
 }
 */
 
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    Tweet *tweet = self.tweets[indexPath.row];
+//    cell.nameLabel.text = tweet[@"id_str"];
+  //  cell.captionLabel.text = tweet[@"text"];
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
 
 @end
