@@ -13,6 +13,8 @@
 #import "TweetCell.h"
 #import "Tweet.h"
 #import "ComposeViewController.h"
+#import "LoginViewController.h"
+#import "AppDelegate.h"
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
@@ -51,6 +53,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)tapLogout:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    appDelegate.window.rootViewController = loginViewController;
+    
+    [[APIManager shared] logout];
+}
+
 
 #pragma mark - Navigation
 
@@ -69,6 +81,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweet = self.tweets[indexPath.row];
+    cell.tweet = tweet;
     //Label Stuff
     cell.nameLabel.text = tweet.user.name;
     cell.usernameLabel.text = tweet.user.screenName;
