@@ -1,7 +1,7 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '11.0'
 
-#project '~/Users/priyapahal/Desktop/Codepath/fbu_ios_twitter_objc-starter-project/twitter.xcodeproj'
+project 'Users/priyapahal/Desktop/Codepath/fbu_ios_twitter_objc-starter-project/twitter.xcodeproj'
 
 target 'twitter' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -10,8 +10,9 @@ target 'twitter' do
   # Pods for twitter
   pod 'AFNetworking'
   pod 'BDBOAuth1Manager'
-  pod 'TTTAttributedLabel'
+  pod 'DateTools'
 end
+
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
